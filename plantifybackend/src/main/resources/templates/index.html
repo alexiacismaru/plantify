@@ -1,0 +1,34 @@
+<!doctype html>
+<html class="no-js" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+   <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="/img/icon.png" th:href="@{/img/icon.png}">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/main.css" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/forms.css" th:href="@{/css/forms.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/fragments.css}"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css} ">
+    <script defer th:src="@{js/formvalidation.js}"></script>
+    <script defer th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script defer type="module" src="/js/jsfile.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/dqy2dee.css">
+    <title>Plantify</title>
+</head>
+
+<body>
+<div th:replace="~{fragments/fragments::navigationbar(1,${loggedInOrNot})}"></div>
+
+<main>
+    <h1>Plantify
+    <section>
+        The first digital self watering system <br> to improve your life!
+    </section>
+    </h1>
+    <a th:if="${loggedInOrNot == false}" class="buttonClass" id="redirect" type="button" th:href="@{/login}">Sign In</a>
+</main>
+
+<div th:insert="~{fragments/fragments::footer}">All rights reserved to Team 6&copy;</div>
+</body>
+
+</html>

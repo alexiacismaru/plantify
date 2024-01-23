@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Plant</title>
+    <link rel="icon" th:src="@{/img/icon.png}">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/forms.css" th:href="@{/css/forms.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/fragments.css" th:href="@{/css/fragments.css}"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css} ">
+    <script defer th:src="@{js/formvalidation.js}"></script>
+    <script defer th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script defer type="module" th:src="@{js/jsfile.js}"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/dqy2dee.css">
+</head>
+<body>
+<div th:replace="~{fragments/fragments::navigationbar(3,${loggedInOrNot})}"></div>
+<main>
+    <form class="addPlant inputForms" method="post" id="form" th:object="${plantViewModel}">
+        <fieldset>
+            <p class="signintitle">Add plant</p>
+            <label><input type="text" id="name" name="name" placeholder="Name"></label>
+            <div class="alert" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+
+            <label for="type"></label>
+            <select name="type" id="type">
+                <!--easier to add new plantTypes -->
+                <option th:each="plantType : ${plantTypes}" th:value="${plantType.name()}" th:text="${plantType.name()}"></option>
+            </select>
+
+            <label><input type="text" id="arduinoSeries" name="arduinoSeries" placeholder="Enter Arduino Series"
+            ></label>
+            <div class="alert" th:if="${#fields.hasErrors('arduinoSeries')}" th:errors="*{arduinoSeries}"></div>
+
+            <label><input type="text" id="physicalAddress" name="physicalAddress" placeholder="Enter Physical Address"
+                          min="0"></label>
+            <div class="alert" th:if="${#fields.hasErrors('physicalAddress')}" th:errors="*{physicalAddress}"></div>
+
+            <button class="button" id="createPlant" type="submit">Submit</button>
+        </fieldset>
+    </form>
+</main>
+<div th:insert="~{/fragments/fragments::footer}">All rights reserved to Team 6&copy;</div>
+</body>
+</html>

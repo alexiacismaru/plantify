@@ -1,0 +1,8 @@
+be.kdg.integration.plantifybackend
+be.kdg.integration.plantifybackend.domain
+be.kdg.integration.plantifybackend.domain.gson
+be.kdg.integration.plantifybackend.presentation
+be.kdg.integration.plantifybackend.presentation.converter
+be.kdg.integration.plantifybackend.presentation.viewModel
+be.kdg.integration.plantifybackend.repository
+be.kdg.integration.plantifybackend.service

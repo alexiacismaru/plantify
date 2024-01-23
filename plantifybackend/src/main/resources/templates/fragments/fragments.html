@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/fragments.css" th:href="@{/css/fragments.css}"/>
+</head>
+<body>
+<div class="footer" th:fragment="footer">
+    <div class="center-div">
+        <p> All rights reserved to Team 6&copy;
+    </div>
+</div>
+
+<nav class="navbar" th:fragment="navigationbar(index, loggedInOrNot)">
+    <div class="left-0">
+        <a id="picture" th:href="@{/index}">
+            <img src="/img/logo.png" alt="logo">
+        </a>
+        <div class="links">
+            <div class="linkContainers" th:if="${loggedInOrNot == true}">
+                <a th:href="@{/plantList}" th:if="${loggedInOrNot == true}"
+                   th:class="${index==1}?'nav-item nav-link active':'nav-item nav-link'" >Plant List</a>
+            </div>
+            <div class="linkContainers" th:if="${loggedInOrNot == true}">
+                    <a th:if="${loggedInOrNot == true}" th:href="@{/dashboard}"
+                    th:class="${index==2}?'nav-item nav-link active':'nav-item nav-link'">Dashboard</a>
+            </div>
+            <div class="linkContainers"><a th:href="@{/aboutPlantify}"
+                    th:class="${index==3}?'nav-item nav-link active':'nav-item nav-link'">About Plantify</a>
+            </div>
+            <div class="linkContainers">
+                <a href="/javadoc/index.html">javadoc</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <div class="dropdownContainer">
+            <button th:if="${loggedInOrNot == true}" class="dropbtn">My Account</button>
+            <div class="dropdown-content">
+                <a th:if="${loggedInOrNot == true}" th:href="@{/logout}">Log Out</a>
+                <a th:href="@{/removeUser}" th:if="${loggedInOrNot == true}">Delete account</a>
+            </div>
+        </div>
+    </div>
+</nav>
+</body>
+</html>

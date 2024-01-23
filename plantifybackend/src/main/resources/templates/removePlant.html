@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Remove Plant</title>
+  <link rel="stylesheet" type="text/css" media="all" href="/css/forms.css" th:href="@{/css/forms.css}"/>
+  <link rel="stylesheet" type="text/css" media="all" href="/css/fragments.css" th:href="@{/css/fragments.css}"/>
+  <link rel="stylesheet" type="text/css" media="all" href="/css/main.css" th:href="@{/css/main.css}"/>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+  <script defer th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}">
+  </script>
+</head>
+<body>
+<div th:replace="~{fragments/fragments::navigationbar(3,${loggedInOrNot})}"></div>
+<main>
+  <form class="addPlant inputForms" method="post" id="form">
+    <fieldset>
+      <p class="signintitle">Remove plant</p>
+      <label><input type="text" id="name" name="name" placeholder="Name" required></label>
+      <label for="type"></label>
+      <select name="type" id="type">
+        <option value="water">Water</option>
+        <option value="desert">Desert</option>
+        <option value="mountain">Mountain</option>
+        <option value="plain">Plain</option>
+      </select>
+      <label><input type="text" id="arduinoSeries" name="arduinoSeries"
+                    placeholder="Enter Arduino Series"></label>
+      <label><input type="text" id="physicalAddress" name="psysicalAddress"
+                    placeholder="Enter Physical Adress"></label>
+      <button class="button" id="createPlant" type="submit">Delete</button>
+    </fieldset>
+  </form>
+</main>
+<div th:insert="~{/fragments/fragments::footer}">All rights reserved to Team 6&copy;</div>
+</body>
+</html>

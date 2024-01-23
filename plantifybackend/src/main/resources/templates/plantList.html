@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Plant List</title>
+    <link rel="icon" href="/img/icon.png" th:href="@{/img/icon.png}">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/fragments.css" th:href="@{/css/fragments.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/plantList.css" th:href="@{/css/plantList.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/main.css" th:href="@{/css/main.css}"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css} ">
+    <script defer th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script defer th:src="@{/webjars/bootstrap/js/5.2.2/bootstrap.bundle.min.js}"></script>
+    <link rel="stylesheet" th:href="@{https://use.typekit.net/dqy2dee.css}">
+
+</head>
+<body>
+<div th:replace="~{fragments/fragments::navigationbar(3, ${loggedInOrNot})}"></div>
+
+<main>
+    <div id="tableContainer">
+        <table class="table table-bordered ">
+            <thead>
+            <tr class="table-dark">
+                <th scope="col">Plant name</th>
+                <th scope="col">humidity</th>
+                <th scope="col">Temperature</th>
+                <th scope="col">brightness</th>
+                <th scope="col">moisture</th>
+            </tr>
+
+            </thead>
+            <tbody>
+            <tr th:each="plant: ${plants}">
+                <th class="bg-primary">
+                    <a th:text="${plant.name}" th:href="@{/plantList/{plant}(plant=${plant.getId()})}"></a>
+                </th>
+                <td class="bg-primary" th:text="${plant.details.humidity}"></td>
+                <td class="bg-primary" th:text="${plant.details.temperature}"></td>
+                <td class="bg-primary" th:text="${plant.details.brightness}"></td>
+                <td class="bg-primary" th:text="${plant.details.moisture}"></td>
+                <td class="bg-primary"><a th:href="@{/plantList/remove/{plant}(plant=${plant.getId()})}">Remove</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<div th:insert="~{/fragments/fragments::footer}">All rights reserved to Team 6&copy;</div>
+</body>
+</html>

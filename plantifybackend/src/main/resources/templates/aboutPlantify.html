@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>About Plantify</title>
+    <link rel="icon" href="/img/icon.png">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/forms.css" th:href="@{/css/forms.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/aboutPlantify.css"
+          th:href="@{/css/aboutPlantify.css}"/>
+    <!--    <link rel="stylesheet" type="text/css" media="all" href="/css/fragments.css" th:href="@{/css/fragments.css}"/>-->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css} ">
+    <script defer th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/dqy2dee.css">
+</head>
+<body>
+<div th:replace="~{fragments/fragments::navigationbar(3,${loggedInOrNot})}"></div>
+
+<main>
+    <h1>About Plantify</h1>
+
+    <div class="container">
+        <img class="team" th:src="@{/img/team_picture.png}" alt="picture of the team"
+             src="../static/img/team_picture.png">
+
+        <div class="description">
+            <article>
+                <p>
+                    Creating Plantify was a long and not-easy journey. We spent almost a day brainstorming ideas for our
+                    project,
+                    then we thought "What would be a good way to improve our day-to-day lives as busy students?" and
+                    collectively
+                    agreed that a little greenery would make us more motivated and satisfied with our surroundings. And,
+                    because taking care of a bunch of plants would be too time-consuming and meticulous, therefore we decided that our
+                    product
+                    would revolve around
+                    solving this issue.
+                </p>
+                <p>
+                    After coming up with the idea the hard part came: building a functioning product and a user-friendly
+                    platform that
+                    manages the plant's details. The product itself is made using Arduino products and coded
+                    in C language.<br><br>
+                    Then, we incorporated all the physical elements into a custom 3D-printed pot that was made in
+                    collaboration with Antistatic.
+                    Everything is concealed by the pot and the plywood surrounding it so that the inside wires are not
+                    damaged. More, inside there
+                    is a plastic pump that takes the optimal quantity of water necessary that is stored in a reservoir
+                    at
+                    the bottom of the product.
+                    <br>
+                    Around the pot, there is a LED strip that indicates the status of the plant: green means the plant
+                    is
+                    between optimal parameters, yellow that one or two parameters are
+                    out of bound, and red
+                    indicates that the plant is in critical condition.
+                </p>
+            </article>
+        </div>
+    </div>
+
+    <div class="teamHierachy">
+        <h2>Division of the team and hierarchy</h2>
+        <img th:src="@{/img/team.png}" src="../static/img/team.png" alt="team hierarchy">
+    </div>
+</main>
+
+<div style="bottom: -100%" th:insert="~{/fragments/fragments::footer}">All rights reserved to Team 6&copy;</div>
+</body>
+</html>

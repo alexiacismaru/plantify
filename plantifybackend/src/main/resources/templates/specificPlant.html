@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Selected plant</title>
+    <link rel="icon" href="/img/icon.png" th:href="@{/img/icon.png}">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/plantList.css" th:href="@{/css/plantList.css}">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/specificPlant.css"
+          th:href="@{/css/specificPlant.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/fragments.css" th:href="@{/css/fragments.css}">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/main.css" th:href="@{/css/main.css}">
+    <!--<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css} ">
+    <script defer th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>-->
+    <link rel="stylesheet" th:href="@{https://use.typekit.net/dqy2dee.css}" href="https://use.typekit.net/dqy2dee.css">
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css}" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js}"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" th:src="@{https://www.gstatic.com/charts/loader.js}"></script>
+    <script type="text/javascript" th:inline="javascript"></script>
+    <script th:src="@{/js/charts.js}"></script>
+    <script defer th:inline="javascript">
+        getDataList([[${archiveDaos}]],[[${plantBounds}]]);
+        getForecastingData([[${forecastingSoilMoisture}]]
+            ,[[${forecastingBrightness}]]
+            ,[[${forecastingHumidity}]]
+            ,[[${forecastingTemp}]]
+            ,[[${plantBounds}]]
+        );
+    </script>
+
+
+</head>
+<body>
+<div th:replace="~{fragments/fragments::navigationbar(2,${loggedInOrNot})}"></div>
+
+<main>
+
+    <div id="tableContainer">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Plant name</th>
+                <th>humidity</th>
+                <th>Temperature</th>
+                <th>brightness</th>
+                <th>moisture</th>
+            </tr>
+
+            </thead>
+            <tbody>
+            <tr>
+                <th th:text="${specPlant.name}"></th>
+                <td th:text="${specPlant.details.humidity}"></td>
+                <td th:text="${specPlant.details.temperature}"></td>
+                <td th:text="${specPlant.details.brightness}"></td>
+                <td th:text="${specPlant.details.moisture}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <form method="post" th:object="${plantSpecificViewModel}">
+        <label th:for="hexaDecimal">Select your favorite color:</label>
+        <input type="color" id="hexaDecimal" th:field="*{hexadecimal}" value="#000000"><br><br>
+
+        <input type="submit">
+        <a th:href="@{/plantList/reset/{specPlant}(specPlant=${specPlant.getId()})}">Reset</a>
+    </form>
+    <div id="folderContainer">
+        <div id="graphContainer">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-home-tab"
+                            data-bs-toggle="pill" data-bs-target="#pills-home"
+                            type="button" role="tab" aria-controls="pills-home"
+                            aria-selected="true">Moisture
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-profile-tab"
+                            data-bs-toggle="pill" data-bs-target="#pills-profile"
+                            type="button" role="tab" aria-controls="pills-profile"
+                            aria-selected="false">Brightness
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                     <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                             data-bs-target="#pills-contact" type="button" role="tab"
+                             aria-controls="pills-contact" aria-selected="false">Air Humidity</button>
+                 </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-temp-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-temp" type="button" role="tab"
+                            aria-controls="pills-temp" aria-selected="false">Temperature</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <p>If there are not enough records in the database the graphs will not appear. Please wait up to max 4 days to see the data</p>
+                <div class="tab-pane fade show active" id="pills-home"
+                     role="tabpanel" aria-labelledby="pills-home-tab">
+
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                     aria-labelledby="pills-profile-tab">
+                </div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                     aria-labelledby="pills-contact-tab">
+                </div>
+                <div class="tab-pane fade" id="pills-temp" role="tabpanel"
+                     aria-labelledby="pills-temp-tab">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:insert="~{/fragments/fragments::footer}">All rights reserved to Team 6&copy;</div>
+
+</body>
+</html>

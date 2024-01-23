@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create User</title>
+    <link rel="icon" th:src="@{/img/icon.png}">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/forms.css" th:href="@{/css/forms.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/fragments.css" th:href="@{/css/fragments.css}"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css} ">
+    <script defer th:src="@{js/formvalidation.js}"></script>
+    <script defer th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script defer type="module" th:src="@{js/jsfile.js}"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/dqy2dee.css">
+</head>
+<body>
+<div th:replace="~{fragments/fragments::navigationbar(2,${loggedInOrNot})}"></div>
+
+<form class="createUser inputForms" id="createUser"  method="post" th:object="${signUpViewModel}" novalidate>
+    <fieldset>
+        <p>Create Account</p>
+<!--        <div th:if="${#fields.hasAnyErrors()}" th:text="${#fields.allErrors()}" class="alert alert-danger">-->
+<!--            <p>The form contained errors!</p>-->
+<!--        </div>-->
+        <label><input type="text" id="email" name="email" placeholder="Email" required></label>
+        <div class="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+
+        <label><input type="password" id="newPassword" name="password" placeholder="Password" required></label>
+        <div class="alert" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+
+        <label><input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required></label>
+        <div class="alert" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+
+        <button class="button" id="createAccount" type="submit">Sign In</button>
+        <p class="message">Already have an account?
+            <a th:href="@{/login}">Log in</a>
+        </p>
+    </fieldset>
+</form>
+
+<div th:insert="~{fragments/fragments::footer}">All rights reserved to Team 6&copy;</div>
+</body>
+</html>

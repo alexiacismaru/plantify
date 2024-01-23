@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="icon" href="/img/icon.png">
+    <link rel="stylesheet" media="all" type="text/css" href="/css/dashboard.css" th:href="@{/css/dashboard.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/forms.css" th:href="@{/css/forms.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/fragments.css" th:href="@{/css/fragments.css}"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css} ">
+    <script defer th:src="@{js/formvalidation.js}"></script>
+    <script defer th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script defer type="module" src="/js/jsfile.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/dqy2dee.css">
+</head>
+<body id="dashboardBody">
+<div th:replace="~{fragments/fragments::navigationbar(2,${loggedInOrNot})}"></div>
+
+<main>
+    <div id="mainContainer">
+
+        <menu class="arrow-box">
+            <a class="addPlant" id="button" type="button" th:href="@{/addPlant}">+ Add Plant</a>
+            <form id="listForm" method="post">
+                <a th:href="@{/dashboard}">
+                    <div  class="arrow-round"></div>
+                </a>
+            </form>
+        </menu>
+        <main id="plantContainter">
+            <div class="plant" th:each="plant: ${plants}">
+                <article>
+                    <h2>Plant name: <span th:text="${plant.name}"></span></h2>
+                    <p>
+                        Air Humidity: <span th:text="${plant.details.humidity}"></span> %
+                    </p>
+                    <p>
+                        Temperature:<span th:text="${plant.details.temperature}"> </span> °C
+                    </p>
+                    <p>
+
+                        Brightness: <span th:text="${plant.details.brightness}"></span> lux
+                    </p>
+                    <p>
+                        Soil Moisture: <span th:text="${plant.details.moisture}"></span> %
+                    </p>
+                </article>
+            </div>
+        </main>
+    </div>
+
+</main>
+
+<div th:insert="~{fragments/fragments::footer}">All rights reserved to Team 6&copy;</div>
+</body>
+</html>

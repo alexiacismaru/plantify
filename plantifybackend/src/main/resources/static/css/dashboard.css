@@ -1,0 +1,118 @@
+@font-face {
+    font-family: quincy-cf, serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+/*---------------------------main ------------------------*/
+html{
+    overflow-x: hidden;
+}
+main {
+    margin-top: 7em;
+
+}
+
+menu {
+    display: flex;
+    width: 85%;
+    height: 30px;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+#listForm {
+    height: 100%;
+}
+
+:root {
+    --width: 20px;
+}
+
+menu a {
+    padding-right: 10px;
+}
+
+.arrow-box .arrow-round {
+    position: absolute;
+    z-index: -1;
+    width: var(--width);
+    height: var(--width);
+    border: calc(var(--width) / 4) solid #4C7F2E;
+    border-radius: 50%;
+    border-right-color: transparent;
+    transition: transform 1s;
+}
+
+.arrow-box .arrow-round::after {
+    content: "";
+    position: absolute;
+    top: -22.5%;
+    left: 65%;
+    border: calc(var(--width) * 0.5) solid #fff;
+    border-bottom-color: #4C7F2E;
+    border-left-color: transparent;
+    border-top-width: 0;
+    border-right-width: 0;
+}
+
+.arrow-box:active .arrow-round {
+    transform: rotate(1turn) scale(1.2);
+}
+
+.arrow-round input {
+    opacity: 0;
+}
+
+/**/
+body #mainContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#plantContainter {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    margin-top: .5em;
+    margin-bottom: 15px;
+    border: 4px solid #a5c99f;
+    border-radius: 50px;
+}
+
+.plant {
+    border: 3px solid grey;
+    border-radius: 35px;
+    width: 31%;
+    height: 20em;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    background-image: url("../img/background.png");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.plant h3 {
+    padding-left: 5px;
+}
+
+.plant p {
+    padding-left: 15px;
+}
+
+.plant article {
+    text-align: center;
+}
+
+.addPlant {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: quincy-cf, serif;
+}

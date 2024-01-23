@@ -1,0 +1,46 @@
+@font-face {
+    font-family: quincy-cf, serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+body{
+    position: relative;
+    font-family: quincy-cf, serif !important;
+}
+
+#folderContainer {
+    font-family: quincy-cf, serif;
+    width: 100%;
+    margin-top: 10em;
+}
+#graphContainer{
+    font-family: quincy-cf, serif;
+    text-align: -webkit-center;
+}
+#graphContainer .nav{
+    font-family: quincy-cf, serif;
+    width: 80%;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    font-family: quincy-cf, serif;
+    color: #fff;
+    background-color: #4a6434 !important;
+}
+.nav-pills .nav-link {
+    font-family: quincy-cf, serif;
+    background: 0 0;
+    border: 0;
+    border-radius: 0.25rem;
+    color: black;
+}
+
+.tab-pane{
+    font-family: quincy-cf, serif;
+    width: 80%;
+}
+.tab-pane{
+    font-family: quincy-cf, serif;
+    width: 900px;
+    height: 500px;
+}

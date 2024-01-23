@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In</title>
+    <link rel="icon" th:src="@{/img/icon.png}">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/forms.css" th:href="@{/css/forms.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/fragments.css" th:href="@{/css/fragments.css}"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css} ">
+    <script defer th:src="@{js/formvalidation.js}"></script>
+    <script defer th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script defer type="module" th:src="@{js/jsfile.js}"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/dqy2dee.css">
+</head>
+<body>
+<div th:replace="~{fragments/fragments::navigationbar(2,${loggedInOrNot})}"></div>
+<main>
+    <form th:object="${loginViewModel}" class="createUser inputForms" method="post" id="createUser" >
+        <fieldset>
+            <p class="signintitle">Sign In</p>
+            <label><input type="text" id="email" name="email" placeholder="Email"></label>
+            <label><input type="password" id="password" name="password" placeholder="Password"></label>
+
+            <button class="button" id="login" type="submit">Log In</button>
+
+            <div class="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+            <div class="alert" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+
+            <p class="message">Don't have an account?
+                <a th:href="@{/createUser}">Register</a>
+            </p>
+        </fieldset>
+    </form>
+</main>
+
+<div th:insert="~{fragments/fragments::footer}">All rights reserved to Team 6&copy;</div>
+</body>
+</html>

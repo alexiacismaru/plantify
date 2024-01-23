@@ -1,0 +1,32 @@
+body {
+  background-image: url("../img/background.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: quincy-cf, serif;
+  font-weight: 400;
+  height: 100%;
+  margin-bottom: 200px;
+  resize: none;
+}
+html{
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+main:not(#tableContainer table tbody td){
+  margin-top: 10em;
+  text-align: center;
+}
+
+h1{
+  font-size: 100px;
+}
+
+a{
+  text-decoration: none;
+}
+
+section{
+  font-size: 40px;
+}

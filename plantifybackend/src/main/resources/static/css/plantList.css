@@ -1,0 +1,72 @@
+section {
+    position: absolute;
+    top: 10em;
+    left: 1em;
+    display: flex;
+    width: 80%;
+    height: 30px;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+#listForm {
+    height: 100%;
+}
+
+:root {
+    --width: 20px;
+}
+
+body {
+    overflow: hidden;
+}
+
+
+section a {
+    padding-right: 10px;
+}
+
+.arrow-box .arrow-round {
+    position: absolute;
+    width: var(--width);
+    height: var(--width);
+    border: calc(var(--width) / 4) solid #4C7F2E;
+    border-radius: 50%;
+    border-right-color: transparent;
+    transition: transform 1s;
+}
+
+.arrow-box .arrow-round::after {
+    content: "";
+    position: absolute;
+    top: -22.5%;
+    left: 65%;
+    border: calc(var(--width) * 0.5) solid #fff;
+    border-bottom-color: #4C7F2E;
+    border-left-color: transparent;
+    border-top-width: 0;
+    border-right-width: 0;
+}
+
+.arrow-box:active .arrow-round {
+    transform: rotate(1turn) scale(1.2);
+}
+
+.arrow-round input {
+    opacity: 0;
+}
+
+.table {
+    width: 80% !important;
+}
+
+#tableContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+#tableContainer table tbody tr td,
+#tableContainer table tbody tr th,
+#tableContainer table thead tr th{
+    padding: 20px;
+}

@@ -1,0 +1,112 @@
+/*body{
+    text-align: center;
+}*/
+
+#form{
+    justify-content: center;
+    height: 15em;
+}
+
+.inputForms{
+    display: inline-block;
+}
+
+fieldset{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    justify-content: space-around;
+    border: transparent;
+    height: 20em;
+    font-weight: bold;
+    position: absolute;
+    top: 10em;
+    left: 40%;
+}
+
+fieldset>input{
+    margin: 2em;
+}
+
+fieldset>p{
+    font-size: 2em;
+}
+
+fieldset>.message{
+    font-size: 1em;
+}
+
+fieldset>label>input {
+    background-color: rgba(128, 128, 128, 0.54);
+    border-radius: 0.5em;
+    border: transparent;
+    height: 2em;
+    width: 20em;
+}
+
+fieldset>select{
+    background-color: rgba(128, 128, 128, 0.54);
+    border-radius: 0.5em;
+    height: 2.3em;
+    width: 20.5em;
+}
+
+.buttonClass{
+    background-color: #4a6434;
+    color: white;
+    font-family: quincy-cf, serif;
+    border: transparent;
+    padding: 0.5em;
+    border-radius: 0.1em;
+    font-size: 1.5em;
+    width: 8em;
+}
+
+.button{
+    background-color: #4a6434;
+    color: white;
+    font-family: quincy-cf, serif;
+    border: transparent;
+    padding: 0.2em;
+    border-radius: 0.5em;
+    font-size: 1em;
+    width: 6em;
+    height: 1.5em;
+}
+
+#logOut{
+    background-color: transparent;
+    border: transparent;
+    color: black;
+    font-family: quincy-cf, serif;
+    font-size: 1em;
+    text-decoration: underline;
+}
+
+select{
+    background-color: rgba(128, 128, 128, 0.54);
+    border-radius: 1em;
+    border: transparent;
+    width: 12em;
+}
+
+.alert {
+    color: red;
+    font-family: Arial, serif;
+    font-size: 12px;
+}
+
+.message {
+   font-weight: normal;
+}
+
+.message>a{
+    color: black;
+}
+
+.signintitle{
+    text-align: center;
+}
